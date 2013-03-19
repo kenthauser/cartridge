@@ -6,6 +6,8 @@
 .product-sorting select {margin:0 0 0 5px;}
 #category .thumbnails h6 {color:#777; height:50px; margin:10px 0 5px 0; border-bottom:1px dashed #ddd;}
 #category .thumbnails a {width:100px; height:200px; color:#666; padding:20px;}
+#category .categories.thumbnails h6 {border-bottom:0px;}
+#category .categories.thumbnails a {width:100px; height:140px; color:#666; padding:20px;}
 #category .thumbnails a:hover {text-decoration:none;}
 #category .thumbnails .placeholder {width:100px; height:100px; background:rgba(220,220,220, 0.1);}
 #related-products.thumbnails h6 {color:#777; height:40px; margin:10px 0 5px 0; border-bottom:1px dashed #ddd;}
@@ -44,12 +46,12 @@
 .wishlist .btn-primary {margin-left:20px;}
 
 /* Cart panel in checkout */
-.checkout-panel {float:right; margin:0px 30px 0 0;}
-.checkout-panel li {border-bottom:1px dashed #eee; padding:10px 0; color:#999; line-height:15px;}
-.checkout-panel img {float:left; margin-right:10px;}
-.checkout-panel .price {float:right; line-height:20px;}
-.checkout-panel .btn {float:right; margin-top:15px;}
-.checkout-panel .order-totals {text-align:right;}
+#checkout .checkout-panel {float:right; margin:0px 30px 0 0;}
+#checkout .checkout-panel li {border-bottom:1px dashed #eee; padding:10px 0; color:#999; line-height:15px;}
+#checkout .checkout-panel img {float:left; margin-right:10px;}
+#checkout .checkout-panel .price {float:right; line-height:20px;}
+#checkout .checkout-panel .btn {float:right; margin-top:15px;}
+#checkout .checkout-panel .order-totals {text-align:right;}
 .order-totals label {margin-right:10px; display:inline;}
 .order-totals {float:right; margin:10px 0;}
 

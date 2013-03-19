@@ -1,4 +1,3 @@
-
 import hmac
 from locale import setlocale, LC_MONETARY
 try:
@@ -21,6 +20,7 @@ class EmptyCart(object):
     """
 
     id = None
+    pk = None
     has_items = lambda *a, **k: False
     skus = lambda *a, **k: []
     upsell_products = lambda *a, **k: []
@@ -80,6 +80,14 @@ def set_shipping(request, shipping_type, shipping_total):
     """
     request.session["shipping_type"] = shipping_type
     request.session["shipping_total"] = shipping_total
+
+
+def set_tax(request, tax_type, tax_total):
+    """
+    Stores the tax type and total in the session.
+    """
+    request.session["tax_type"] = tax_type
+    request.session["tax_total"] = tax_total
 
 
 def sign(value):

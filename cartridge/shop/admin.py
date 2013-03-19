@@ -63,11 +63,13 @@ category_fieldsets[0][1]["fields"][3:3] = ["content", "products"]
 category_fieldsets += ((_("Product filters"), {
     "fields": ("sale", ("price_min", "price_max"), "combined"),
     "classes": ("collapse-closed",)},),)
+if settings.SHOP_CATEGORY_USE_FEATURED_IMAGE:
+    category_fieldsets[0][1]["fields"].insert(3, "featured_image")
 
 # Options are only used when variations are in use, so only provide
 # them as filters for dynamic categories when this is the case.
 if settings.SHOP_USE_VARIATIONS:
-    category_fieldsets[-1][1]["fields"] = (("options", ) +
+    category_fieldsets[-1][1]["fields"] = (("options",) +
                                         category_fieldsets[-1][1]["fields"])
 
 
@@ -262,8 +264,9 @@ class OrderAdmin(admin.ModelAdmin):
         (_("Billing details"), {"fields": (tuple(billing_fields),)}),
         (_("Shipping details"), {"fields": (tuple(shipping_fields),)}),
         (None, {"fields": ("additional_instructions", ("shipping_total",
-            "shipping_type"), ("discount_total", "discount_code"),
-            "item_total", ("total", "status"), "transaction_id")}),
+            "shipping_type"), ('tax_total', 'tax_type'),
+             ("discount_total", "discount_code"), "item_total",
+            ("total", "status"), "transaction_id")}),
     )
 
 

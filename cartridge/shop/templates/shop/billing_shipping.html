@@ -1,5 +1,5 @@
 {% extends "shop/checkout.html" %}
-{% load i18n mezzanine_tags %}
+{% load i18n future mezzanine_tags %}
 
 {% block extra_head %}
 {{ block.super }}
@@ -11,8 +11,8 @@
 {% if not request.user.is_authenticated %}
 {% ifinstalled mezzanine.accounts %}
 <p>
-{% url login as login_url %}
-{% url signup as signup_url %}
+{% url "login" as login_url %}
+{% url "signup" as signup_url %}
 {% with request.path as next %}
 {% blocktrans %}
 If you have an existing account or would like to create one, please
@@ -36,6 +36,7 @@ If you have an existing account or would like to create one, please
 	{% fields_for form.additional_instructions_field %}
     {% fields_for form.remember_field %}
 </fieldset>
+
 {% if not settings.SHOP_CHECKOUT_STEPS_SPLIT and settings.SHOP_PAYMENT_STEP_ENABLED %}
 {% include "shop/includes/payment_fields.html" %}
 {% endif %}
